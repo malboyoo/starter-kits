@@ -1,0 +1,37 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  lint-and-typecheck:
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        starter-kit: [hypermedia, inertia-react, inertia-vue]
+
+    name: ${{ matrix.starter-kit }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Install dependencies
+        working-directory: ${{ matrix.starter-kit }}
+        run: npm ci
+
+      - name: Lint
+        working-directory: ${{ matrix.starter-kit }}
+        run: npm run lint
+
+      - name: Typecheck
+        working-directory: ${{ matrix.starter-kit }}
+        run: npm run typecheck
