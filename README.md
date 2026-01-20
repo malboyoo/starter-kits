@@ -33,6 +33,7 @@ This repository contains the official AdonisJS starter kits, each tailored for d
 
 | Starter Kit | Description | Best For |
 |-------------|-------------|----------|
+| [**API**](./api) | Type-safe REST API with dual authentication (tokens & sessions) | Building APIs for any frontend, mobile apps, third-party integrations |
 | [**Hypermedia**](./hypermedia) | Server-rendered applications with Edge.js templates and Alpine.js | Traditional web apps, admin panels, content sites |
 | [**Inertia React**](./inertia-react) | Single-page applications with React and Inertia.js | Modern SPAs with React ecosystem |
 | [**Inertia Vue**](./inertia-vue) | Single-page applications with Vue and Inertia.js | Modern SPAs with Vue ecosystem |
@@ -40,6 +41,20 @@ This repository contains the official AdonisJS starter kits, each tailored for d
 ---
 
 ## 🚀 Quick Start
+
+### API Starter Kit
+
+Build type-safe REST APIs with dual authentication (API tokens and sessions) that work with any frontend framework.
+
+```bash
+npm init adonisjs@latest -- -K=api
+```
+
+**Includes:** Tuyau (type-safe API calls), Dual authentication (API tokens + sessions), Lucid ORM, RESTful structure
+
+[Learn more about API →](./api)
+
+---
 
 ### Hypermedia Starter Kit
 
@@ -88,6 +103,14 @@ During setup, select `vue` as your frontend adapter.
 ---
 
 ## 🎯 Choosing a Starter Kit
+
+### Choose API if you want:
+
+- Build a backend API for any frontend framework (React, Vue, Svelte, Angular, etc.)
+- Develop mobile apps or third-party integrations
+- Type-safe API calls between frontend and backend with Tuyau
+- Flexible authentication (API tokens for cross-origin, sessions for same-domain)
+- Framework-agnostic API-first architecture
 
 ### Choose Hypermedia if you want:
 
