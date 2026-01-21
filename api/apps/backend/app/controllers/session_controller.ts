@@ -1,10 +1,11 @@
 import User from '#models/user'
+import { loginValidator } from '#validators/user'
 import type { HttpContext } from '@adonisjs/core/http'
 import UserTransformer from '#transformers/user_transformer'
 
 export default class SessionController {
   async store({ request, serialize }: HttpContext) {
-    const { email, password } = request.all()
+    const { email, password } = await request.validateUsing(loginValidator)
 
     const user = await User.verifyCredentials(email, password)
     const token = await User.accessTokens.create(user)
