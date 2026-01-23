@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 /// <reference path="../manifest.d.ts" />
 
-import type { ExtractBody, ExtractQuery, ExtractQueryForGet } from '@tuyau/core/types'
+import type { ExtractBody, ExtractQuery, ExtractQueryForGet, ExtractResponse } from '@tuyau/core/types'
 import type { InferInput } from '@vinejs/vine/types'
 
 export interface Registry {
@@ -13,7 +13,7 @@ export interface Registry {
       paramsTuple: []
       params: {}
       query: ExtractQuery<InferInput<(typeof import('#validators/user').signupValidator)>>
-      response: Awaited<ReturnType<import('#controllers/new_account_controller').default['store']>>
+      response: ExtractResponse<Awaited<ReturnType<import('#controllers/new_account_controller').default['store']>>>
     }
   }
   'auth.access_token.store': {
@@ -24,7 +24,7 @@ export interface Registry {
       paramsTuple: []
       params: {}
       query: ExtractQuery<InferInput<(typeof import('#validators/user').loginValidator)>>
-      response: Awaited<ReturnType<import('#controllers/access_token_controller').default['store']>>
+      response: ExtractResponse<Awaited<ReturnType<import('#controllers/access_token_controller').default['store']>>>
     }
   }
   'auth.access_token.destroy': {
@@ -35,7 +35,7 @@ export interface Registry {
       paramsTuple: []
       params: {}
       query: {}
-      response: Awaited<ReturnType<import('#controllers/access_token_controller').default['destroy']>>
+      response: ExtractResponse<Awaited<ReturnType<import('#controllers/access_token_controller').default['destroy']>>>
     }
   }
   'profile.profile.show': {
@@ -46,7 +46,7 @@ export interface Registry {
       paramsTuple: []
       params: {}
       query: {}
-      response: Awaited<ReturnType<import('#controllers/profile_controller').default['show']>>
+      response: ExtractResponse<Awaited<ReturnType<import('#controllers/profile_controller').default['show']>>>
     }
   }
 }
