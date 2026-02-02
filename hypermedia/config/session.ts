@@ -76,6 +76,7 @@ const sessionConfig = defineConfig({
      * Suitable for small session data that doesn't exceed cookie size limits.
      */
     cookie: stores.cookie(),
+    database: stores.database(),
   },
 })
 
