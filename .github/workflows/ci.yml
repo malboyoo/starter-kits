@@ -26,7 +26,7 @@ jobs:
 
       - name: Install dependencies
         working-directory: ${{ matrix.starter-kit }}
-        run: npm ci
+        run: npm i
 
       - name: Lint
         working-directory: ${{ matrix.starter-kit }}
